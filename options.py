@@ -9,7 +9,7 @@ from datetime import timedelta
 
 def db_init():
     db = pymysql.connect(
-        host='192.168.66.26',
+        host='219.91.64.26',
         user='super',
         password='0104',
         port=3306,
