@@ -3,7 +3,8 @@ import pymysql
 from flask import jsonify
 import util, model
 from flask_apispec import doc, use_kwargs, MethodResource, marshal_with
-from model import UserGetResponse, UseranotherResponse, UserPostRequest, UserPatchRequest
+from model import UserGetResponse, UseranotherResponse, \
+    UserPostRequest, UserPatchRequest
 from datetime import timedelta
 
 def db_init():
@@ -49,10 +50,8 @@ class product(MethodResource):
             'quantity': kwargs['quantity']
         }
         sql = """
-
         INSERT INTO `api_class`.`cart` (`product`,`price`,`quantity`)
         VALUES ('{}','{}','{}');
-
         """.format(
             product['product'], product['price'], product['quantity'])
             
@@ -90,7 +89,6 @@ class edit(MethodResource):
         UPDATE table_name
         SET column1=value1, column2=value2, column3=value3···
         WHERE some_column=some_value;
-
         '''
         sql = """
             UPDATE api_class.cart
