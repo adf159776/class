@@ -3,8 +3,7 @@ import pymysql
 from flask import jsonify
 import util, model
 from flask_apispec import doc, use_kwargs, MethodResource, marshal_with
-from model import UserGetResponse, UseranotherResponse, \
-    UserPostRequest, UserPatchRequest, LoginReqest
+from model import UserGetResponse, UseranotherResponse, UserPostRequest, UserPatchRequest
 from datetime import timedelta
 
 def db_init():
