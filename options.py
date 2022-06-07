@@ -5,7 +5,6 @@ import util, model
 from flask_apispec import doc, use_kwargs, MethodResource, marshal_with
 from model import UserGetResponse, UseranotherResponse, \
     UserPostRequest, UserPatchRequest, LoginReqest
-from flask_jwt_extended import create_access_token, jwt_required
 from datetime import timedelta
 
 def db_init():
@@ -22,8 +21,6 @@ def db_init():
 class product(MethodResource):
     
     @doc(description="Get products info", tags=['cart'])
-    @jwt_required()
-    #@marshal_with(UserGetResponse, code=200)
     def get(self):
         db, cursor = db_init()
         
@@ -42,7 +39,6 @@ class product(MethodResource):
     
     @doc(description="Post products info", tags=['cart'])
     @use_kwargs(UserPostRequest,location="json")
-    @jwt_required()
     @marshal_with(UseranotherResponse, code=200)
 
     def post(self,**kwargs):
@@ -74,7 +70,6 @@ class product(MethodResource):
 class edit(MethodResource):
     @doc(description="Patch product info", tags=['cart'])
     @use_kwargs(UserPatchRequest,location="json")
-    @jwt_required()
     @marshal_with(UseranotherResponse, code=200)
 
     def patch(self, name,**kwargs):
@@ -115,7 +110,6 @@ class edit(MethodResource):
         return util.failure()
 
     @doc(description="Delete product info", tags=['cart'])
-    @jwt_required()
     @marshal_with(UseranotherResponse, code=200)
 
     def delete(self, name):
@@ -132,8 +126,6 @@ class edit(MethodResource):
         return util.failure()
 
     @doc(description="Get products info", tags=['cart'])
-    @jwt_required()
-#    @marshal_with(UserGetResponse, code=200)
     def get(self, name):
         db, cursor = db_init()
 
