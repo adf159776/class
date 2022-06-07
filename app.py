@@ -1,6 +1,6 @@
 from flask import Flask
 from flask_restful import Api
-from options import product,edit,Login
+from options import product,edit
 from apispec import APISpec
 from apispec.ext.marshmallow import MarshmallowPlugin
 from flask_apispec.extension import FlaskApiSpec
