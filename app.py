@@ -25,5 +25,10 @@ docs.register(product)
 api.add_resource(edit, '/product/<string:name>')
 docs.register(edit)
 
+@app.route('/')
+def index():
+    print('Request for index page received')
+    return "hello"
+
 if __name__ == '__main__':
     app.run(debug=True)
