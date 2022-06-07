@@ -26,4 +26,4 @@ api.add_resource(edit, '/product/<string:name>')
 docs.register(edit)
 
 if __name__ == '__main__':
-  app.run(debug=True)
+    app.run(debug=True)
