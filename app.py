@@ -20,7 +20,7 @@ app.config.update({
 })
 docs = FlaskApiSpec(app)
 
-api.add_resource(product, '/product')
+api.add_resource(product, '/')
 docs.register(product)
 api.add_resource(edit, '/product/<string:name>')
 docs.register(edit)
