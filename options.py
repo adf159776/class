@@ -9,11 +9,11 @@ from datetime import timedelta
 
 def db_init():
     db = pymysql.connect(
-        host='219.91.64.26',
-        user='super',
-        password='0104',
+        host='sqlsql.mysql.database.azure.com',
+        user='sandy123',
+        password='Ji394su3@',
         port=3306,
-        db='api_class'
+        database='api_class'
     )
     cursor = db.cursor(pymysql.cursors.DictCursor)
     return db, cursor
