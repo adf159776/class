@@ -6,13 +6,17 @@ from flask_apispec import doc, use_kwargs, MethodResource, marshal_with
 from model import UserGetResponse, UseranotherResponse, \
     UserPostRequest, UserPatchRequest
 from datetime import timedelta
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 def db_init():
     db = pymysql.connect(
-        host='sqlsql.mysql.database.azure.com',
-        user='sandy123',
-        password='Ji394su3@',
-        port=3306,
+        host = os.getenv("dbip"),
+        user = os.getenv("dbuser"),
+        password = os.getenv("dbpassword"),
+        port = int(os.getenv("dbport")),
         database='api_class'
     )
     cursor = db.cursor(pymysql.cursors.DictCursor)
