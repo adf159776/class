@@ -7,13 +7,17 @@ from user_route_model import UserGetResponse, UseranotherResponse, \
     UserPostRequest, UserPatchRequest, LoginReqest
 from flask_jwt_extended import create_access_token, jwt_required
 from datetime import timedelta
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 def db_init():
     db = pymysql.connect(
-        host='127.0.0.1',
-        user='root',
-        password='root',
-        port=3306,
+        host = os.getenv("dbip"),
+        user = os.getenv("dbuser"),
+        password = os.getenv("dbpassword"),
+        port = int(os.getenv("dbport")),
         db='api_class'
     )
     cursor = db.cursor(pymysql.cursors.DictCursor)
